@@ -121,6 +121,7 @@ export default function App() {
           </div> 
           :
           <div className="question-container" >
+              <img className="blob-one" src={blobThree} />
               <img className="blob-two" src={blobFour} />
               <h1 className="intro-name page-title" >Quizzical</h1>
               {questionEl}
