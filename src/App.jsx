@@ -18,7 +18,7 @@ export default function App() {
   
   
   React.useEffect(() => {
-      fetch('https://opentdb.com/api.php?amount=5')
+      fetch('https://opentdb.com/api.php?amount=5&difficulty=easy')
           .then(res => res.json())
           .then(data => {
               setQuestions(getQuestion(data.results))
