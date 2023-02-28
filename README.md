@@ -17,6 +17,7 @@ Check the [DEMO](https://inspiring-praline-02963a.netlify.app/) to see Quizical 
   2) Get result data and get a confetti display if all are correct.
   
   This is how the project looks like: 
+  
 ![391FFC64-4361-4CED-B109-BDB0DAD8C8A2](https://user-images.githubusercontent.com/58727101/221974629-d4227cc9-2d1a-4bf0-bd72-c6e18f500bab.png)
 
 
