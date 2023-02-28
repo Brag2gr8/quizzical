@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  text-align: center;
+  color: #293264;
+}
+
+main {
+  margin: 0 auto;
+  position: relative;
+  background: #F5F7FB;
+  max-width: 550px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.intro {
+  margin: 30vh 0
+}
+
+.intro-name {
+  font-size: 31.25px;
+  margin-bottom: 10px;
+}
+
+.page-title {
+  margin-bottom: 50px;
+}
+
+.desc,
+.start-btn,
+.answer-btn {
+  font-family: 'Inter', sans-serif;
+}
+
+.start-btn {
+  border-radius: 15px;
+  width: 193px;
+  height: 52px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.start-btn,
+.answer-btn{
+  background: #4D5B9E;
+  border: none;
+  color: #F5F7FB;
+}
+
+.blob-one {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.blob-two {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.question-container {
+  padding: 0 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap:13px;
+}
+
+.question-title {
+  width: 351.05px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.all-answers {
+  display: flex;
+  gap: 13px;
+}
+
+.answer {
+  border: 0.794239px solid #4D5B9E;
+  border-radius: 7.94239px;
+  padding: 5px 10px;
+  font-size: 10.24px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+hr {
+  width: 100%;
+  border: 0.8px solid #DBDEF0;
+  margin-bottom: 5px
+}
+
+.answer-btn {
+  margin-top: 10px;
+  width: 120px;
+  height: 35px;
+  font-size: 10.24px;
+  border-radius: 10px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.score {
+  padding-top: 10px
+}
+
+@media (min-width: 650px) {
+  main {
+    max-width: 100%;
+    height: 100vh;
+  }
+  .question-title {
+    width: 100%;
+    font-size: 24px;
+  }
+  .answer-btn {
+    width: 200px;
+    height: 50px;
+    font-size: 18.24px;
+  }
+
+  .intro-name {font-size: 40.25px}
+  .desc {font-size: 20px}
+  .start-btn {font-size: 16px}
+  .answer {font-size: 16.24px}
+  .score {font-size: 24.24px}
+  .result {gap: 50px}
+}
