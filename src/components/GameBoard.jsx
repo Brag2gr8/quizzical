@@ -17,9 +17,7 @@ export default function GameBoard(props) {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setTimeout(() => {
                     setQuestions(getQuestion(data.results))
-                }, 2000)
             })
     }, [url])
 
