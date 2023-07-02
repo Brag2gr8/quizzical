@@ -60,7 +60,7 @@ export default function Intro(props) {
           />
         </label>
         <label>
-          Select Category
+          Category
           <select
             name="category"
             onChange={handleChange}
@@ -94,7 +94,7 @@ export default function Intro(props) {
           </select>
         </label>
         <label>
-          Select Difficulty
+          Difficulty
           <select name="difficulty" onChange={handleChange} value={formData.difficulty}>
             <option value="Any Difficulty">Any Difficulty</option>
             <option value="easy">Easy</option>
@@ -103,7 +103,7 @@ export default function Intro(props) {
           </select>
         </label>
         <label>
-          Select Type
+          Type
           <select name="type" onChange={handleChange} value={formData.type}>
             <option value="Any Type">Any Type</option>
             <option value="multiple">Multiple Choice</option>
