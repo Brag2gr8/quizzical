@@ -68,6 +68,8 @@ input, select {
   border: 2px solid #4D5B9E;
 }
 
+select {width: 150px;}
+
 .form{
   display: flex;
   flex-direction: column;
