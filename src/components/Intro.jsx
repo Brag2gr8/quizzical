@@ -10,7 +10,7 @@ export default function Intro(props) {
         type: 'Any Type',
     });
     
-    const { setStart, setUrl } = props;
+    const { setStart, setUrl, setTotalQuestions } = props;
 
   function startQuiz(e) {
     e.preventDefault();
@@ -30,9 +30,10 @@ export default function Intro(props) {
         `&type=${form.type.value}` : ""
 
     setFormData(newFormData);
-    setStart(true);
     const url = `https://opentdb.com/api.php?${num}${cat}${dif}${type}`
     setUrl(url)
+    setTotalQuestions(form.amount.value)
+    setStart(true);
   }
 
   function handleChange(e) {

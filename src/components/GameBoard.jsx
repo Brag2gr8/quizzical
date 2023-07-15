@@ -4,6 +4,7 @@ import blobFour from '../assets/blob-four.png'
 import Question from "./Question"
 import {decode} from "html-entities"
 import {nanoid} from "nanoid"
+import Confetti from "react-confetti"
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -11,14 +12,17 @@ import 'react-loading-skeleton/dist/skeleton.css'
 export default function GameBoard(props) {
     const [questions, setQuestions] = useState([])
     const [solved, setSolved] = useState(false)
-    const {url, score, setScore, setStart} = props
+    const [score, setScore] = useState(0)
+    const {url, setStart, totalQuestions} = props
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                     setQuestions(getQuestion(data.results))
             })
+            .catch(err => console.log(err))
     }, [url])
 
     function getQuestion(array) {
@@ -34,9 +38,6 @@ export default function GameBoard(props) {
     }
     
     function getAnswers(array, i) {
-        function shuffle(arr) {
-            arr.sort(() => Math.random() - 0.5);
-        }
         const newArr =  array[i].incorrect_answers
         newArr.push(array[i].correct_answer)
         newArr.sort(() => Math.random() - 0.5)
@@ -93,24 +94,26 @@ export default function GameBoard(props) {
         />
     ))
 
-    const skeletonArr = new Array(7).fill(0)
-    const skeletonEl = skeletonArr.map((el, i) => {
+    const skeletonEl = new Array(7).fill(0).map((el, i) => {
         return (
-            <div className="question" key={i} >
-                <Skeleton width={400} height={30} />
-                <div className="all-answers">
-                    <Skeleton width={80} height={20}/>
-                    <Skeleton width={80} height={20}/>
-                    <Skeleton width={80} height={20}/>
-                    <Skeleton width={80} height={20}/>
-                </div>
-                <hr/>
+            <div className="question" key={i}>
+            <h3>{<Skeleton width={400} />}</h3>
+            <div className="all-answers">
+                {<Skeleton width={60} />}
+                {<Skeleton width={60} />}
+                {<Skeleton width={60} />}
+                {<Skeleton width={60} />}
             </div>
+            <hr/>
+        </div>
         )
     })
 
+    console.log(typeof score, typeof totalQuestions)
+
     return (
         <div className="question-container" >
+            {score === parseFloat(totalQuestions) && <Confetti />}
             <img className="blob-one" src={blobThree} />
             <img className="blob-two" src={blobFour} />
             <h1 className="intro-name page-title" >Quizzical</h1>
@@ -123,8 +126,8 @@ export default function GameBoard(props) {
                 {solved ? 
                 <>
                     <h3 className="score">
-                    {score === 5 ? "You got all questions!" :
-                    `You scored ${score}/5 correct answers`}
+                    {score === totalQuestions ? "You got all questions!" :
+                    `You scored ${score}/${totalQuestions} correct answers`}
                     </h3>
                     <button 
                         className="answer-btn" 
